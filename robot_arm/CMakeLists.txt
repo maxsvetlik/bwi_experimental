@@ -10,9 +10,6 @@ find_package(catkin REQUIRED COMPONENTS
   pcl_ros
   pcl_conversions
   actionlib
-  genmsg
-  cv_bridge
-  image_transport
 )
 find_package(OpenCV REQUIRED)
 
@@ -57,10 +54,3 @@ target_link_libraries(drawShapes ${catkin_LIBRARIES})
 add_executable (draw src/draw.cpp)
 target_link_libraries(draw ${catkin_LIBRARIES})
 
-#distance publisher
-add_executable (distance_pub src/distPub.cpp)
-target_link_libraries(distance_pub ${catkin_LIBRARIES})
-
-#vision dist
-add_executable (visionDistance src/visionDistance.cpp)
-target_link_libraries(visionDistance ${catkin_LIBRARIES} ${openCV_LIBRARIES})

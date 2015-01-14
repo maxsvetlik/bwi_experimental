@@ -1029,11 +1029,11 @@ void establish_bounds(){
 void drawFromCD(std::string inputName)
 {
 	vector <vector <string> > data;
-	std::string fullFile = "src/robot_arm/" + inputName + ".cdcode";
+	std::string fullFile = "src/robot_arm/opencv/drawing_files" + inputName + ".cdcode";
 	ifstream infile( fullFile.c_str() );
 	if(!infile){
 		cout << endl << "ERROR: Could not file file with that name." << endl;
-		cout << "I look for files in the catkin_ws/src/robot_arm/ folder. Ensure that the file exists." << endl << endl;
+		cout << "I look for files in the catkin_ws/src/robot_arm/opencv/drawing_code folder. Ensure that the file exists." << endl << endl;
 	}
 	while (infile)
 	{
@@ -1105,11 +1105,11 @@ void drawFromCD(std::string inputName)
 void drawFromCD(std::string inputName, float xOffset, float yOffset, float scale)
 {
 	vector <vector <string> > data;
-	std::string fullFile = "src/robot_arm/" + inputName + ".cdcode";
+	std::string fullFile = "src/robot_arm/opencv/drawing_code" + inputName + ".cdcode";
 	ifstream infile( fullFile.c_str() );
 	if(!infile){
 		cout << endl << "ERROR: Could not file file with that name." << endl;
-		cout << "I look for files in the catkin_ws/src/robot_arm/ folder. Ensure that the file exists." << endl << endl;
+		cout << "I look for files in the catkin_ws/src/robot_arm/opencv/drawing_code folder. Ensure that the file exists." << endl << endl;
 	}
 	while (infile)
 	{
@@ -1615,6 +1615,8 @@ int main(int argc, char **argv)
 			cout << "12/07/14 - The arm now checks if it has successfully grabbed anything in the openFingersAndWait function" << endl;
 			cout << "12/08/14 - Edited force feedback for drawing" << endl;
 			cout << "12/10/14 - Rehaul of demo" << endl;
+			cout << "12/23/14 - Added additional comments. General code cleanup."
+			cout << "1/14/15  - Consolidated drawing code into folder, updated code to reflect changes."
 			cout << endl;
 		}
 		else if(ansChoice == "d" || ansChoice == "v"){
