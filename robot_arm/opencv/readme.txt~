@@ -1,0 +1,18 @@
+http://answers.opencv.org/question/25642/how-to-compile-basic-opencv-program-in-c-in-ubuntu/
+Supplemental program to the GDC BWI Robotic Drawing Arm Program
+maintainer: Maxwell Svetlik - maxsvetlik@gmail.com
+
+
+Using the programs in this folder, you can create .cdcode files from 2d images for the purpose of drawing with the Jaco Kinova robot arm manipulator.
+
+Brief how-to:
+
+Compile:
+1)In the opencv directory, run cmake .
+2)run make
+
+Run the program
+1) run `./transforms someimagefile.jpg outputname`
+if successful, outputname.cdcode will have been generated and output into the `drawing_code` directory outside of the opencv dir.
+
+
