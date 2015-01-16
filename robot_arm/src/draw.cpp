@@ -1615,8 +1615,8 @@ int main(int argc, char **argv)
 			cout << "12/07/14 - The arm now checks if it has successfully grabbed anything in the openFingersAndWait function" << endl;
 			cout << "12/08/14 - Edited force feedback for drawing" << endl;
 			cout << "12/10/14 - Rehaul of demo" << endl;
-			cout << "12/23/14 - Added additional comments. General code cleanup."
-			cout << "1/14/15  - Consolidated drawing code into folder, updated code to reflect changes."
+			cout << "12/23/14 - Added additional comments. General code cleanup.";
+			cout << "1/14/15  - Consolidated drawing code into folder, updated code to reflect changes.";
 			cout << endl;
 		}
 		else if(ansChoice == "d" || ansChoice == "v"){
