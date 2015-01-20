@@ -247,6 +247,17 @@ void clearMsgs(){
 	}
 }
 
+void clearMsgs(double duration){
+	ros::Time start = ros::Time::now();
+	ros::Duration timeout = ros::Duration(duration);
+	ros::Rate r2(5);
+	//clears out old effort msgs
+	while( (ros::Time::now() - start) < timeout){
+		ros::spinOnce();
+		r2.sleep();
+	}
+}
+
 //Used for debugging force changes. Outputs both the deltas and gravityFree into a file for analysis
 void writeToFile(vector<double> gravFree, vector<double> deltas){
 	fstream filestr;
@@ -946,9 +957,8 @@ void gotoPoint(double x_coord, double y_coord){
 	r3.sleep();
 	
 	ros::Time s = ros::Time::now();
-	ros::Duration t = ros::Duration(.05);
 	//clears out old effort msgs
-	clearMsgs();
+	clearMsgs(.05);
 	}
 	
 }
@@ -1029,11 +1039,11 @@ void establish_bounds(){
 void drawFromCD(std::string inputName)
 {
 	vector <vector <string> > data;
-	std::string fullFile = "src/robot_arm/opencv/drawing_files" + inputName + ".cdcode";
+	std::string fullFile = "src/robot_arm/bwi_experimental/opencv/drawing_files" + inputName + ".cdcode";
 	ifstream infile( fullFile.c_str() );
 	if(!infile){
 		cout << endl << "ERROR: Could not file file with that name." << endl;
-		cout << "I look for files in the catkin_ws/src/robot_arm/opencv/drawing_code folder. Ensure that the file exists." << endl << endl;
+		cout << "I look for files in the /src/robot_arm/opencv/drawing_code folder. Ensure that the file exists." << endl << endl;
 	}
 	while (infile)
 	{
