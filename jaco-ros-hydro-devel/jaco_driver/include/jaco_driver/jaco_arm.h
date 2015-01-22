@@ -94,6 +94,7 @@ class JacoArm
     double cartesian_vel_timeout_seconds_;
     double joint_vel_interval_seconds_;
     double cartesian_vel_interval_seconds_;
+    bool publish_acceleration_;
 
     // State tracking or utility members
     bool cartesian_vel_timer_flag_;

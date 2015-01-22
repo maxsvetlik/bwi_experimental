@@ -12,10 +12,10 @@
 
 #define PI 3.14159265359
 
+//bool publish_acceleration;
 
 namespace jaco
 {
-
 JacoArm::JacoArm(JacoComm &arm, const ros::NodeHandle &nodeHandle)
     : jaco_comm_(arm), node_handle_(nodeHandle)
 {
@@ -44,7 +44,8 @@ JacoArm::JacoArm(JacoComm &arm, const ros::NodeHandle &nodeHandle)
     node_handle_.param<double>("cartesian_vel_timeout", cartesian_vel_timeout_seconds_, 0.25);
     node_handle_.param<double>("joint_angular_vel_timeout", joint_vel_interval_seconds_, 0.1);
     node_handle_.param<double>("cartesian_vel_timeout", cartesian_vel_interval_seconds_, 0.01);
-
+    node_handle_.param<bool>("publish_acceleration", publish_acceleration_, false);
+	
     status_timer_ = node_handle_.createTimer(ros::Duration(status_interval_seconds_),
                                            &JacoArm::statusTimer, this);
 
@@ -392,7 +393,8 @@ void JacoArm::statusTimer(const ros::TimerEvent&)
     publishToolPosition();
     publishFingerPosition();
     publishJointEfforts();
-    publishAcceleration();
+    if(publish_acceleration_)
+		publishAcceleration();
 }
 
 }  // namespace jaco

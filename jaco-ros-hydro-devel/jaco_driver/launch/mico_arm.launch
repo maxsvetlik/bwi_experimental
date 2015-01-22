@@ -20,11 +20,14 @@
     <param name="joint_angles/tolerance" value="1.0" />
     
     <!-- how often the driver publishes the robot's joint states, efforts, etc. -->
-    <param name="status_interval_seconds" value="0.05" />
+    <param name="status_interval_seconds" value="0.025" />
     
     <!-- should be true by default -->
     <param name="start_force_control" value="True"/>
-      
+    
+    <param name="publish_acceleration" value="False"/>
+
+
   </node>
     
   <node name="mico_tf_updater" pkg="jaco_driver" type="jaco_tf_updater" output="screen" cwd="node">
